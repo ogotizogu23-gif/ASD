@@ -1,138 +1,82 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Página</title>
-    <style>
-        /* ========================================================== */
-        /* === ALTERAÇÕES DE COR PARA TEMA ESCURO (Dark Theme) === */
-        /* ========================================================== */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Assessoria Empresarial — Consulta Segura e Rápida</title>
+  <meta name="description" content="Atendimento rápido, seguro e 100% online. Consulte  Agora." />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background:#f9fafb; color:#111827; line-height:1.6; }
+    img { max-width:100%; display:block; height:auto; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:100%; max-width:1100px; margin:0 auto; padding:24px; }
 
-        /* 1. FUNDO PRINCIPAL: Adicionado para garantir que toda a página seja escura */
-        body {
-            background-color: #12121c; /* Azul Marinho Escuro */
-            color: #e0e0e0; /* Cor do texto padrão (Branco suave) */
-            margin: 0;
-        }
+    header { background:#e91e63; color:#fff; }
+    header .container { display:flex; align-items:center; justify-content:center; padding:20px; }
+    .logo { font-weight:800; letter-spacing:.3px; font-size:20px; text-transform:uppercase; }
 
-        /* 2. AJUSTE DAS CORES DE DESTAQUE E ELEMENTOS INTERNOS */
-        
-        .hero .cta { 
-            display: inline-block; 
-            background: #00d48a; /* Cor de Destaque (Ciano/Verde) */
-            color: #12121c; /* Texto escuro na cor de destaque */
-            font-weight: 800; 
-            padding: 14px 28px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
-            transform: .2s ease; 
-            background: #00d48a; 
-        }
-        
-        .hero .cta:hover { 
-            background: #00c07c; /* Um pouco mais escuro no hover */
-            color: #fff; /* Opcional: manter o texto branco no hover */
-            transform: scale(1.05); 
-        }
+    .hero { padding:56px 0 32px; text-align:center; }
+    .hero h1 { color:#e91e63; font-size:34px; line-height:1.15; font-weight:800; text-transform:uppercase; margin-bottom:12px; }
+    .hero h2 { font-size:22px; font-weight:700; margin-bottom:8px; text-transform:uppercase; }
+    .hero p  { font-size:18px; color:#374151; margin:12px auto 24px; max-width:700px; }
 
-        /* 3. CORES DE FUNDO DOS CONTAINERS INTERNOS (Cards, FAQ, Testimonials) */
+    .hero .frame { display:flex; justify-content:center; }
+    .hero img { width:100%; max-width:420px; height:auto; margin:0 auto 20px;
+                 border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.10); }
+    @media (max-width:480px) { .hero img { max-width:92%; } }
 
-        .card {
-            background: #1f213a; /* Fundo dos cards (Cinza escuro, mais claro que o body) */
-            border-radius: 12px; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-        }
+    .hero .cta { display:inline-block; background:#e91e63; color:#fff; font-weight:800; padding:14px 28px; border-radius:12px; box-shadow:0 10px 15px -3px rgba(0,0,0,.1); transition:transform .2s ease, background .2s ease; }
+    .hero .cta:hover { background:#c2185b; transform:translateY(-2px); }
+    @keyframes pulse { 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.05);} }
+    .cta.pulse { animation:pulse 3s infinite ease-in-out; }
 
-        .card p { 
-            color: #e0e0e0; /* Alterado para branco suave para legibilidade no fundo escuro */
-            font-size: 16px; 
-        }
-        
-        .testimonials .t-card { 
-            background: #1f213a; /* Fundo do card de Testemunho */
-            border-radius: 12px; 
-            padding: 18px 30px; 
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
-            margin-bottom: 8px; 
-        }
-        
-        .faq .q { 
-            background: #1f213a; /* Fundo do FAQ */
-            border-radius: 12px; 
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
-            padding: 16px; 
-        }
+    .section { padding:48px 0; }
+    .title { text-align:center; font-size:28px; font-weight:800; margin-bottom:4px; }
+    .divider { width:96px; height:4px; background:#e91e63; margin:12px auto 28px; border-radius:999px; }
 
-        /* 4. AJUSTE DE CORES DE TEXTO E OUTROS ELEMENTOS */
+    .about { display:grid; grid-template-columns:1fr; gap:24px; align-items:center; }
+    .about .pics { display:grid; grid-template-columns:repeat(2, 140px); justify-content:center; gap:16px; }
+    .about .pics img { width:140px; height:140px; object-fit:cover; border-radius:999px; box-shadow:0 20px 25px -5px rgba(0,0,0,.1); }
+    .about .text { max-width:800px; margin:0 auto; }
+    .about .text p { font-size:17px; color:#1f2937; margin-bottom:12px; }
 
-        .section h2, .section h3, .section h4 {
-            color: #e0e0e0; /* Títulos em branco suave */
-        }
-        
-        .stars {
-            color: #ffcc00; /* Cor amarela para as estrelas (Destaque) */
-            letter-spacing: 1px;
-            font-size: 15px;
-        }
+    .grid { display:grid; grid-template-columns:1fr; gap:16px; }
+    .card { background:#fff; border-radius:12px; box-shadow:0 4px 6px -1px rgba(0,0,0,.1); padding:20px; }
+    .card h3 { font-size:18px; font-weight:800; margin-bottom:6px; }
+    .card p { color:#374151; font-size:16px; }
 
-        .footer { 
-            background: #0e0e1a; /* Rodapé um pouco mais escuro que o body */
-            color: #ffffff; /* Texto do rodapé em branco */
-            padding: 32px 24px; 
-        }
-        
-        /* 5. SELETORES QUE NÃO TINHAM DEFINIÇÃO DE FUNDO E FORAM MANTIDOS (ou apenas ajustados) */
+    @media (min-width: 768px){ .grid { grid-template-columns:repeat(2, 1fr); } .hero h1{ font-size:40px; } .hero h2{ font-size:24px; } }
+    @media (min-width:1024px){ .about { grid-template-columns:1fr 1fr; } }
 
-        .section { padding: 48px 0; }
-        .title { text-align: center; font-size: 28px; font-weight: 800; margin-bottom: 4px; }
-        .divider { width: 96px; height: 4px; background: #00d48a; margin: 12px auto 28px; border-radius: 999px; }
-        .cta-animation { animation: pulse 3s infinite ease-in-out; }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 212, 138, 0.4); }
-            100% { box-shadow: 0 0 0 10px rgba(0, 212, 138, 0); }
-        }
+    .testimonials { display:grid; grid-template-columns:1fr; gap:16px; }
+    .tcard { background:#f3f4f6; border-radius:12px; padding:18px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+    .thead { display:flex; gap:12px; align-items:center; margin-bottom:8px; }
+    .thead img { width:48px; height:48px; border-radius:999px; object-fit:cover; }
+    .tname { font-weight:800; }
+    .stars { letter-spacing:1px; color:#eab308; font-size:15px; }
 
-        .about { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
-        .about .pics { display: grid; grid-template-columns: repeat(2, 140px); justify-content: center; gap: 16px; }
-        .about .pics img { width: 140px; height: 140px; object-fit: cover; border-radius: 999px; box-shadow: 0 20px 25px rgba(0, 0, 0, 0.4); }
-        .about .text { max-width: 800px; margin: 0 auto; }
-        .about .text p { font-size: 17px; margin-bottom: 12px; }
+    .faq { display:grid; grid-template-columns:1fr; gap:12px; }
+    .faq .q { background:#fff; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,.08); padding:16px; }
+    .faq .q h4 { font-weight:800; margin-bottom:6px; font-size:16px; }
 
-        .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    footer { background:#111827; color:#fff; }
+    footer .container { text-align:center; padding:32px 24px; }
+    .foot-links a { margin:0 10px; opacity:.9; }
+    .foot-links a:hover { opacity:1; text-decoration:underline; }
+    .copy { color:#9ca3af; font-size:14px; margin-top:16px; }
 
-        .testimonials { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        .t-card .t-head { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
-        .t-card .t-head img { width: 48px; height: 48px; border-radius: 999px; object-fit: cover; }
-        .t-card .t-name { font-weight: 800; }
-
-        .faq { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .faq .q h4 { font-weight: 800; margin-bottom: 6px; font-size: 16px; }
-
-        .footer .container { text-align: center; padding: 32px 24px; }
-        .foot-links a { margin: 0 10px; opacity: .9; }
-        .foot-links a:hover { opacity: 1; text-decoration: underline; }
-
-        @media (min-width: 768px) {
-            .grid { grid-template-columns: repeat(2, 1fr); }
-            .hero h1 { font-size: 40px; }
-            .hero h2 { font-size: 24px; }
-        }
-        @media (min-width: 1024px) {
-            .about { grid-template-columns: 1fr 1fr; }
-        }
-    </style>
+    .sticky-cta { position:sticky; bottom:0; width:100%; background:#fff; border-top:1px solid #e5e7eb; z-index:9; }
+    .sticky-cta .wrap { display:flex; gap:12px; align-items:center; justify-content:center; padding:12px; }
+    .sticky-cta a { background:#e91e63; color:#fff; font-weight:800; padding:12px 20px; border-radius:10px; }
+  </style>
 </head>
-<body>
-    </body>
-</html>
 <body id="topo">
   <header>
     <div class="container">
-      <div class="logo">Assessoria Empresarial</div>
+      <div class="logo">Assessoria Online</div>
     </div>
   </header>
 
@@ -232,7 +176,7 @@
         <a href="#beneficios">Benefícios</a>
         <a href="#topo" onclick="window.scrollTo({{top:0, behavior:'smooth'}})">Voltar ao topo</a>
       </div>
-      <div class="copy">© 2025 — PACIOLI &amp; EFICÁCIA SERVIÇOS CONTÁBEIS — Todos os direitos reservados.</div>
+      <div class="copy">© 2025 — Gestalt &amp; Gestalt Numbers Assessoria Contabil e Gestao Empresarial LTDA — Todos os direitos reservados.</div>
     </div>
   </footer>
 </body>
